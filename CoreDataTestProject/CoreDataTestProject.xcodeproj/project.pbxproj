@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED94478F2133A5BF0097A5E4 /* PersisterTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED94478E2133A5BE0097A5E4 /* PersisterTool.swift */; };
+		ED9447912133CC280097A5E4 /* CoreDataTableViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9447902133CC270097A5E4 /* CoreDataTableViewVC.swift */; };
+		ED9447932134DB1E0097A5E4 /* DocumentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9447922134DB1D0097A5E4 /* DocumentVC.swift */; };
+		ED9447972134EFBF0097A5E4 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9447962134EFBF0097A5E4 /* BaseViewController.swift */; };
 		EDC2C60F212D11D6007EFB81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC2C60E212D11D6007EFB81 /* AppDelegate.swift */; };
 		EDC2C611212D11D6007EFB81 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC2C610212D11D6007EFB81 /* ViewController.swift */; };
-		EDC2C614212D11D6007EFB81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDC2C612212D11D6007EFB81 /* Main.storyboard */; };
 		EDC2C617212D11D6007EFB81 /* CoreDataTestProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EDC2C615212D11D6007EFB81 /* CoreDataTestProject.xcdatamodeld */; };
 		EDC2C619212D11DA007EFB81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDC2C618212D11DA007EFB81 /* Assets.xcassets */; };
 		EDC2C61C212D11DA007EFB81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDC2C61A212D11DA007EFB81 /* LaunchScreen.storyboard */; };
@@ -38,10 +41,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		ED94478E2133A5BE0097A5E4 /* PersisterTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersisterTool.swift; sourceTree = "<group>"; };
+		ED9447902133CC270097A5E4 /* CoreDataTableViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTableViewVC.swift; sourceTree = "<group>"; };
+		ED9447922134DB1D0097A5E4 /* DocumentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentVC.swift; sourceTree = "<group>"; };
+		ED9447962134EFBF0097A5E4 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		EDC2C60B212D11D6007EFB81 /* CoreDataTestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataTestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDC2C60E212D11D6007EFB81 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EDC2C610212D11D6007EFB81 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		EDC2C613212D11D6007EFB81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EDC2C616212D11D6007EFB81 /* CoreDataTestProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataTestProject.xcdatamodel; sourceTree = "<group>"; };
 		EDC2C618212D11DA007EFB81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EDC2C61B212D11DA007EFB81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -106,10 +112,13 @@
 			isa = PBXGroup;
 			children = (
 				EDC2C60E212D11D6007EFB81 /* AppDelegate.swift */,
+				ED9447962134EFBF0097A5E4 /* BaseViewController.swift */,
 				EDC2C610212D11D6007EFB81 /* ViewController.swift */,
+				ED9447922134DB1D0097A5E4 /* DocumentVC.swift */,
+				ED9447902133CC270097A5E4 /* CoreDataTableViewVC.swift */,
 				EDC2C661212F9F60007EFB81 /* CoreDataManageTool.swift */,
+				ED94478E2133A5BE0097A5E4 /* PersisterTool.swift */,
 				EDC2C65A212EAC06007EFB81 /* Models */,
-				EDC2C612212D11D6007EFB81 /* Main.storyboard */,
 				EDC2C618212D11DA007EFB81 /* Assets.xcassets */,
 				EDC2C61A212D11DA007EFB81 /* LaunchScreen.storyboard */,
 				EDC2C61D212D11DA007EFB81 /* Info.plist */,
@@ -251,7 +260,6 @@
 			files = (
 				EDC2C61C212D11DA007EFB81 /* LaunchScreen.storyboard in Resources */,
 				EDC2C619212D11DA007EFB81 /* Assets.xcassets in Resources */,
-				EDC2C614212D11D6007EFB81 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,10 +286,14 @@
 			files = (
 				EDC2C611212D11D6007EFB81 /* ViewController.swift in Sources */,
 				EDC2C617212D11D6007EFB81 /* CoreDataTestProject.xcdatamodeld in Sources */,
+				ED94478F2133A5BF0097A5E4 /* PersisterTool.swift in Sources */,
+				ED9447912133CC280097A5E4 /* CoreDataTableViewVC.swift in Sources */,
 				EDC2C666212FDC8F007EFB81 /* Person+CoreDataProperties.swift in Sources */,
+				ED9447972134EFBF0097A5E4 /* BaseViewController.swift in Sources */,
 				EDC2C665212FDC8F007EFB81 /* Person+CoreDataClass.swift in Sources */,
 				EDC2C662212F9F60007EFB81 /* CoreDataManageTool.swift in Sources */,
 				EDC2C60F212D11D6007EFB81 /* AppDelegate.swift in Sources */,
+				ED9447932134DB1E0097A5E4 /* DocumentVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,14 +329,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		EDC2C612212D11D6007EFB81 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EDC2C613212D11D6007EFB81 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		EDC2C61A212D11DA007EFB81 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
