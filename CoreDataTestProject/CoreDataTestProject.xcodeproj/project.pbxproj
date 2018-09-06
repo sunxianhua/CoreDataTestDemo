@@ -11,6 +11,8 @@
 		ED9447912133CC280097A5E4 /* CoreDataTableViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9447902133CC270097A5E4 /* CoreDataTableViewVC.swift */; };
 		ED9447932134DB1E0097A5E4 /* DocumentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9447922134DB1D0097A5E4 /* DocumentVC.swift */; };
 		ED9447972134EFBF0097A5E4 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9447962134EFBF0097A5E4 /* BaseViewController.swift */; };
+		ED944799213547BE0097A5E4 /* SXH_SwiftNoticeTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED944798213547BE0097A5E4 /* SXH_SwiftNoticeTool.swift */; };
+		ED94479B213653260097A5E4 /* ExtesionUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED94479A213653260097A5E4 /* ExtesionUI.swift */; };
 		EDC2C60F212D11D6007EFB81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC2C60E212D11D6007EFB81 /* AppDelegate.swift */; };
 		EDC2C611212D11D6007EFB81 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC2C610212D11D6007EFB81 /* ViewController.swift */; };
 		EDC2C617212D11D6007EFB81 /* CoreDataTestProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EDC2C615212D11D6007EFB81 /* CoreDataTestProject.xcdatamodeld */; };
@@ -45,6 +47,8 @@
 		ED9447902133CC270097A5E4 /* CoreDataTableViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTableViewVC.swift; sourceTree = "<group>"; };
 		ED9447922134DB1D0097A5E4 /* DocumentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentVC.swift; sourceTree = "<group>"; };
 		ED9447962134EFBF0097A5E4 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		ED944798213547BE0097A5E4 /* SXH_SwiftNoticeTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SXH_SwiftNoticeTool.swift; sourceTree = "<group>"; };
+		ED94479A213653260097A5E4 /* ExtesionUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtesionUI.swift; sourceTree = "<group>"; };
 		EDC2C60B212D11D6007EFB81 /* CoreDataTestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataTestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDC2C60E212D11D6007EFB81 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EDC2C610212D11D6007EFB81 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +122,8 @@
 				ED9447902133CC270097A5E4 /* CoreDataTableViewVC.swift */,
 				EDC2C661212F9F60007EFB81 /* CoreDataManageTool.swift */,
 				ED94478E2133A5BE0097A5E4 /* PersisterTool.swift */,
+				ED944798213547BE0097A5E4 /* SXH_SwiftNoticeTool.swift */,
+				ED94479A213653260097A5E4 /* ExtesionUI.swift */,
 				EDC2C65A212EAC06007EFB81 /* Models */,
 				EDC2C618212D11DA007EFB81 /* Assets.xcassets */,
 				EDC2C61A212D11DA007EFB81 /* LaunchScreen.storyboard */,
@@ -284,6 +290,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED94479B213653260097A5E4 /* ExtesionUI.swift in Sources */,
 				EDC2C611212D11D6007EFB81 /* ViewController.swift in Sources */,
 				EDC2C617212D11D6007EFB81 /* CoreDataTestProject.xcdatamodeld in Sources */,
 				ED94478F2133A5BF0097A5E4 /* PersisterTool.swift in Sources */,
@@ -292,6 +299,7 @@
 				ED9447972134EFBF0097A5E4 /* BaseViewController.swift in Sources */,
 				EDC2C665212FDC8F007EFB81 /* Person+CoreDataClass.swift in Sources */,
 				EDC2C662212F9F60007EFB81 /* CoreDataManageTool.swift in Sources */,
+				ED944799213547BE0097A5E4 /* SXH_SwiftNoticeTool.swift in Sources */,
 				EDC2C60F212D11D6007EFB81 /* AppDelegate.swift in Sources */,
 				ED9447932134DB1E0097A5E4 /* DocumentVC.swift in Sources */,
 			);

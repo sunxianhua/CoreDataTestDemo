@@ -136,7 +136,7 @@ class CoreDataTableViewVC: BaseViewController {
         thePerson.name    = textArray[0]
         thePerson.sexFlag = Int64(textArray[1])!
         
-        if CoreDataManageTool().save() {
+        if CoreDataManageTool().saveContext() {
             self.personArray.append(thePerson)
             tableView.reloadData()
         }
@@ -206,7 +206,7 @@ extension CoreDataTableViewVC:UITableViewDelegate,UITableViewDataSource{
             self.personArray[indexPath.row].sexFlag = Int64(textArray[1])!
             
             
-            if CoreDataManageTool().save() {
+            if CoreDataManageTool().saveContext() {
                 tableView.reloadData()
             }
             

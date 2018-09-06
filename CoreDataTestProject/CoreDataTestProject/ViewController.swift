@@ -18,6 +18,7 @@ class ViewController: BaseViewController {
         super.viewDidLoad()
         
         self.creatViews()
+        
 
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -29,6 +30,11 @@ class ViewController: BaseViewController {
         tableView.frame      = self.view.bounds
         tableView.delegate   = self
         tableView.dataSource = self
+        
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
         
     }
     
@@ -66,6 +72,10 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         print(self.view.subviews.count)
+        
+      //  self.showTextRemindView(noticeString: "测试文字", superView: nil)
+        
+     //   self.showWaitNotice(noticeString: "菊花圈等待电风扇的份上发送到发送到发送到环保部会不会被换班换班换班")
         switch indexPath.row {
         case 0:
             self.navigationController?.pushViewController(DocumentVC(), animated: true)

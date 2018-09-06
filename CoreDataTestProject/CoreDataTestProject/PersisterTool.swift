@@ -78,7 +78,11 @@ class PersistenceTool: NSObject {
         pathArray[0] = PersistenceTool.getRelativePath(pathType: pathType)
         return pathArray[0] + pathArray[1]
         
+        
+        
     }
+    
+
     
     
     //根据类型获得相对路径的主目录
@@ -105,9 +109,9 @@ class PersistenceTool: NSObject {
         
         let defaults = UserDefaults.standard
         return  defaults.object(forKey: key) as Any?
+        
     }
-    
-    
+
     
     /*
         根据路径存取

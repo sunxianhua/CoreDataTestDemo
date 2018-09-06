@@ -12,7 +12,7 @@ import UIKit
 import CoreData
 
 let managerAppDelegate = UIApplication.shared.delegate as! AppDelegate
-let managedObectContext = managerAppDelegate.persistentContainer.viewContext
+let managedObectContext = CoreDataManageTool.coreDataManagedContext
 
 public let Width = UIScreen.main.bounds.size.width
 public let Height = UIScreen.main.bounds.size.height
@@ -20,6 +20,25 @@ public var MainBounds = UIScreen.main.bounds
 
 
 class CoreDataManageTool<N :NSManagedObject>: NSObject {
+    
+    
+    /*
+     封装的一个codateCore 工具类
+     */
+    static var coreDataContainer: NSPersistentContainer {
+        let container = NSPersistentContainer(name: "CoreDataTestProject")
+        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            if let error = error as NSError? {
+                debugPrint("Unclear error\(error)")
+            }
+        })
+        return container
+    }
+    
+    static var coreDataManagedContext: NSManagedObjectContext {
+        return coreDataContainer.viewContext
+    }
+    
     
     //******************对数据库做操作*********
     /*
@@ -43,8 +62,6 @@ class CoreDataManageTool<N :NSManagedObject>: NSObject {
      
      
      */
-    
-    
     //获得查询请求 entityName --> 表名
     func getFetchRequest(entityName :String) ->NSFetchRequest<NSFetchRequestResult>{
         let theFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
@@ -61,24 +78,27 @@ class CoreDataManageTool<N :NSManagedObject>: NSObject {
     
     
     //保存
-    func save() ->Bool{
-    
-        do{
-            try managedObectContext.save()
+    func saveContext() ->Bool{
+        guard CoreDataManageTool.coreDataManagedContext.hasChanges else { return false}
+        
+        do {
+            try CoreDataManageTool.coreDataManagedContext.save()
             return true
-        }catch{
-            fatalError("增加失败")
+            
+        } catch let error as NSError {
+            debugPrint("Unclear error\(error)")
         }
         
         return false
+        
     }
-    
+
     
     //删
     func delete(obj :NSManagedObject) ->Bool{
         
         managedObectContext.delete(obj)
-        return self.save()
+        return self.saveContext()
     }
     
     //查
