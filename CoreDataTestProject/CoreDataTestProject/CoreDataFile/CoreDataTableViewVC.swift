@@ -11,8 +11,15 @@ import CoreData
 
 class CoreDataTableViewVC: BaseViewController {
     
+    lazy var bookCoreDataTool :CoreDataTool<Book> = {
+        let tool = CoreDataTool<Book>.init(modelName: "Book")
+        return tool
+    }()
+    
+    
     var pathString = ""
-    var personArray :[Person] = Array()
+    
+    var bookArray :[Book] = Array()
     var tableView = UITableView()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +31,7 @@ class CoreDataTableViewVC: BaseViewController {
         
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
     
     
     private func creatViews(){
@@ -48,12 +56,19 @@ class CoreDataTableViewVC: BaseViewController {
     //增加一项
     @objc private func addAction(){
         
-        
-        self.showAlert(title: "请输入人名和性别标记", message: "人名/性别标记（1：男 2女）") { (inputSting) in
-            self.add(text: inputSting)
-            self.tableView.reloadData()
+        if let bookModel = self.bookCoreDataTool.creatEntityModel(entityName: "Book") {
+            bookModel.name = "书名\(self.bookArray.count+1)"
+            bookModel.price = 100.00
+            if self.bookCoreDataTool.saveContext() {
+                
+                self.bookArray.append(bookModel)
+                debugPrint("存储成功")
+            }
+            
         }
         
+        
+        self.tableView.reloadData()
         
     }
     
@@ -122,24 +137,8 @@ class CoreDataTableViewVC: BaseViewController {
     //增加
     func add(text :String?){
         
-        //检测输入格式是否正确
-        if !self.checkInput(inputString: text){
-            return
-        }
         
         
-        let textArray = text!.components(separatedBy: "/")
-        //创建一个新的表实例，并赋值
-        guard let thePerson = CoreDataManageTool<Person>().creatManagerObj(entityName: "Person")  else {
-            return
-        }
-        thePerson.name    = textArray[0]
-        thePerson.sexFlag = Int64(textArray[1])!
-        
-        if CoreDataManageTool().saveContext() {
-            self.personArray.append(thePerson)
-            tableView.reloadData()
-        }
         
     }
     
@@ -147,10 +146,10 @@ class CoreDataTableViewVC: BaseViewController {
     
     func searchData(){
         
-        let array = CoreDataManageTool<Person>().FetchRequest(fetchRequest: nil, entityName: "Person")
-        
-        self.personArray = array
-        self.tableView.reloadData()
+        let _ = self.bookCoreDataTool
+        let books = self.bookCoreDataTool.FetchRequest(fetchRequest: nil, entityName: "Book")
+        self.bookArray = books
+    
     }
     
     
@@ -158,26 +157,25 @@ class CoreDataTableViewVC: BaseViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
 }
+
 
 extension CoreDataTableViewVC:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell.init(style: .subtitle, reuseIdentifier: "")
-        cell.textLabel?.text = "姓名：\(self.personArray[indexPath.row].name!) "
-        
-        let sexName = self.personArray[indexPath.row].sexFlag == 1 ? "男" : "女"
-        cell.detailTextLabel?.text = "性别：\(sexName)"
+       let cellModel = self.bookArray[indexPath.row]
+        cell.textLabel?.text = cellModel.name
+        cell.detailTextLabel?.text = "\(cellModel.price)元";
         
         return cell
     }
     
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return self.personArray.count
+        return self.bookArray.count
     }
     
     
@@ -190,29 +188,11 @@ extension CoreDataTableViewVC:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         //点击修改
-        let model = self.personArray[indexPath.row]
+        let model = self.bookArray[indexPath.row]
+        model.name = "修改了"
+         _ = self.bookCoreDataTool.saveContext()
         
-        let remindString = model.sexFlag == 1 ? "\(model.name!)/男" : "\(model.name!)/女"
-        self.showAlert(title: remindString, message: "请按格式修改 姓名/性别(1:男 2：女)") { (inputText) in
-            
-            
-            if !self.checkInput(inputString: inputText) {
-                return
-            }
-            
-            
-            let textArray = inputText!.components(separatedBy: "/")
-            self.personArray[indexPath.row].name    = textArray[0]
-            self.personArray[indexPath.row].sexFlag = Int64(textArray[1])!
-            
-            
-            if CoreDataManageTool().saveContext() {
-                tableView.reloadData()
-            }
-            
-        }
-        
-        
+        tableView.reloadData()
     }
     
     
@@ -220,16 +200,14 @@ extension CoreDataTableViewVC:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == UITableViewCellEditingStyle.delete {
-            
             //删除
-            if CoreDataManageTool<Person>().delete(obj: personArray[indexPath.row]) {
-                personArray.remove(at: indexPath.row)
-                
-                //刷新界面
-                tableView.reloadData()
-            }
+            bookCoreDataTool.delete(obj: self.bookArray[indexPath.row])
+            self.bookArray.remove(at: indexPath.row)
             
+            tableView.reloadData()
         }
+        
+        
     }
     
     

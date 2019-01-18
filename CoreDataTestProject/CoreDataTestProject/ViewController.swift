@@ -19,7 +19,6 @@ class ViewController: BaseViewController {
         
         self.creatViews()
         
-
         // Do any additional setup after loading the view, typically from a nib.
     }
     

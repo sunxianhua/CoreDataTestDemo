@@ -8,12 +8,19 @@
 
 import Foundation
 import UIKit
+
 class DocumentVC:  BaseViewController{
+    
+    var Width :CGFloat = 0
+    var Height :CGFloat = 0
     
     var textView = UITextView.init()
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        Width = self.view.bounds.width
+        Height = self.view.bounds.height
         
         self.creatViews()
         self.getSaveValue()
